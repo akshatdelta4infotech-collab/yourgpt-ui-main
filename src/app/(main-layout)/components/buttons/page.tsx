@@ -5,7 +5,9 @@ export default function ButtonsPage() {
     <div className="space-y-8">
       <div>
         <h1 className="text-2xl font-bold mb-4">Buttons</h1>
-        <p className="text-gray-600 mb-8">A collection of button components with different variants and sizes.</p>
+        <p className="text-gray-600 mb-8">
+          A collection of button components with different variants and sizes.
+        </p>
       </div>
 
       <div className="space-y-6">

@@ -10,6 +10,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import CodeView from "../components/CodeView";
+import PreviewCodeHeader from "./PreviewCodeHeader";
 
 // Define props type for variant
 type StartBuildingUIProps = {
@@ -76,7 +77,7 @@ import { ChevronRight } from "lucide-react";
 
 export default function CtaDesign() {
   return (
-    <section className="relative w-[84%] mx-auto bg-transparent flex items-center justify-start overflow-hidden mt-10 min-h-[60vh]">
+    <section className="relative w-full mx-auto bg-transparent flex items-center justify-center overflow-hidden mt-10 min-h-[60vh] py-16">
       {/* Background grid pattern */}
       <div className="absolute inset-0 opacity-30">
         <div
@@ -210,102 +211,61 @@ export default function HostingHeroSection() {
 
   return (
     <div>
-      {/* Header */}
-      <header className="w-full pt-6 z-40  ">
-        {/* Top line */}
-        <div className="h-px bg-border w-full absolute left-0 right-0"></div>
-
-        <div className="relative z-10 flex items-center justify-between py-2 mx-[8.6%]">
-          <div className="flex items-center space-x-3">
-            {/* Preview Button */}
-            <button
-              onClick={() => setActiveTab("preview")}
-              className={`flex items-center space-x-2 px-4 py-2 text-sm font-medium rounded-md ${
-                activeTab === "preview"
-                  ? "bg-secondary text-secondary-foreground"
-                  : "text-muted-foreground"
-              }`}
-            >
-              <Eye className="w-4 h-4" />
-              <span>Preview</span>
-            </button>
-
-            {/* Code Button */}
-            <button
-              onClick={() => setActiveTab("code")}
-              className={`flex items-center space-x-2 px-4 py-2 text-sm font-medium rounded-md ${
-                activeTab === "code"
-                  ? "bg-secondary text-secondary-foreground"
-                  : "text-muted-foreground"
-              }`}
-            >
-              <Code2 className="w-4 h-4" />
-              <span>Code</span>
-            </button>
-
-            {/* Divider */}
-            <span className="w-px h-6 bg-border mx-2"></span>
-
-            {/* Zoom */}
-            <button className="ml-2 p-2 rounded-md hover:bg-muted hover:text-foreground transition-colors duration-200 cursor-pointer">
-              <Maximize className="w-4 h-4" />
-            </button>
-          </div>
-        </div>
-
-        {/* Bottom line under header */}
-        <div className="h-px bg-border w-full absolute left-0 right-0 "></div>
-      </header>
+      <PreviewCodeHeader activeTab={activeTab} setActiveTab={setActiveTab} />
 
       {/* Main content */}
       {activeTab === "preview" ? (
         variant === "default" ? (
-          <div className="flex flex-col items-center justify-start min-h-[60vh] px-6 text-center pt-30">
-            <h1 className="text-5xl font-bold text-foreground mb-6 tracking-tight">
-              Start Building
-            </h1>
-            <p className="text-lg text-muted-foreground mb-12 max-w-md">
-              Libero sapiente aliquam quibusdam aspernatur.
-            </p>
+          <div className="flex flex-col items-center justify-center min-h-[60vh] w-full text-center py-16">
+            <div className="max-w-4xl mx-auto px-6">
+              <h1 className="text-5xl font-bold text-foreground mb-6 tracking-tight">
+                Start Building
+              </h1>
+              <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
+                Libero sapiente aliquam quibusdam aspernatur.
+              </p>
 
-            <div className="flex items-center space-x-4">
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-2 text-base font-medium h-10 rounded-md">
-                Get Started
-              </Button>
-              <Button
-                variant="outline"
-                className="border-border text-foreground hover:bg-muted hover:border-border px-6 py-2 text-base font-medium h-10 rounded-md bg-background"
-              >
-                Book Demo
-              </Button>
+              <div className="flex items-center justify-center space-x-4">
+                <Button className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-2 text-base font-medium h-10 rounded-md">
+                  Get Started
+                </Button>
+                <Button
+                  variant="outline"
+                  className="border-border text-foreground hover:bg-muted hover:border-border px-6 py-2 text-base font-medium h-10 rounded-md bg-background"
+                >
+                  Book Demo
+                </Button>
+              </div>
             </div>
           </div>
         ) : variant === "email" ? (
-          <div className="flex flex-col items-center justify-start min-h-[60vh] px-6 text-center pt-30">
-            <h1 className="text-5xl font-bold text-foreground mb-6 tracking-tight">
-              Start Building
-            </h1>
-            <p className="text-lg text-muted-foreground mb-12 max-w-md">
-              Libero sapiente aliquam quibusdam aspernatur.
-            </p>
+          <div className="flex flex-col items-center justify-center min-h-[60vh] w-full text-center py-16">
+            <div className="max-w-4xl mx-auto px-6">
+              <h1 className="text-5xl font-bold text-foreground mb-6 tracking-tight">
+                Start Building
+              </h1>
+              <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
+                Libero sapiente aliquam quibusdam aspernatur.
+              </p>
 
-            <div className="relative w-full max-w-md">
-              <span className="absolute inset-y-0 left-4 flex items-center text-muted-foreground pointer-events-none">
-                <Mail className="w-5 h-5" />
-              </span>
-              <input
-                type="email"
-                placeholder="Your email address"
-                className="w-full h-14 bg-background border border-border rounded-2xl pl-10 pr-28 text-sm text-foreground placeholder-muted-foreground focus:outline-none"
-              />
-              <Button className="absolute top-1/2 -translate-y-1/2 right-4 h-9 px-4 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 text-sm">
-                Get Started
-              </Button>
+              <div className="relative w-full max-w-lg mx-auto">
+                <span className="absolute inset-y-0 left-4 flex items-center text-muted-foreground pointer-events-none">
+                  <Mail className="w-5 h-5" />
+                </span>
+                <input
+                  type="email"
+                  placeholder="Your email address"
+                  className="w-full h-14 bg-background border border-border rounded-2xl pl-10 pr-28 text-sm text-foreground placeholder-muted-foreground focus:outline-none"
+                />
+                <Button className="absolute top-1/2 -translate-y-1/2 right-4 h-9 px-4 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 text-sm">
+                  Get Started
+                </Button>
+              </div>
             </div>
           </div>
         ) : variant === "cta" ? (
           // 🔹 CTA design version
-          <section className="relative w-[84%] mx-auto bg-transparent flex items-center justify-start overflow-hidden min-h-[60vh]">
+          <section className="relative w-full mx-auto bg-transparent flex items-center justify-center overflow-hidden min-h-[60vh] py-16">
             {/* Background grid pattern */}
             <div className="absolute inset-0 opacity-30">
               <div
@@ -341,7 +301,7 @@ export default function HostingHeroSection() {
           </section>
         ) : (
           // 🔹 CTA2 design version
-          <section className="w-[84%] min-h-[60vh] relative  mx-auto overflow-hidden">
+          <section className="w-full min-h-[60vh] relative mx-auto overflow-hidden py-16">
             {/* Background with gradient */}
             <div className="absolute inset-0 bg-gradient-to-br from-indigo-900 via-purple-900 to-black"></div>
 
@@ -376,46 +336,48 @@ export default function HostingHeroSection() {
             <div className="absolute top-1/2 right-10 w-2 h-24 bg-gradient-to-t from-purple-400/30 to-transparent transform -translate-y-1/2"></div>
 
             {/* Main content */}
-            <div className="relative z-10 flex flex-col items-center justify-center min-h-[60vh] px-6 text-center">
-              {/* Top badge */}
-              <div className="mb-12">
-                <Button
-                  variant="secondary"
-                  className="bg-gray-800/80 hover:bg-gray-700/80 text-white border-gray-600/50 rounded-full px-6 py-2 text-sm backdrop-blur-sm"
-                >
-                  Flexible Plans for You
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </div>
+            <div className="relative z-10 flex flex-col items-center justify-center min-h-[60vh] w-full text-center">
+              <div className="max-w-4xl mx-auto px-6">
+                {/* Top badge */}
+                <div className="mb-12">
+                  <Button
+                    variant="secondary"
+                    className="bg-gray-800/80 hover:bg-gray-700/80 text-white border-gray-600/50 rounded-full px-6 py-2 text-sm backdrop-blur-sm"
+                  >
+                    Flexible Plans for You
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </div>
 
-              {/* Heading */}
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-white mb-8 max-w-5xl leading-tight">
-                Deploy your website <br /> in seconds, not hours
-              </h1>
+                {/* Heading */}
+                <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-white mb-8 max-w-5xl leading-tight">
+                  Deploy your website <br /> in seconds, not hours
+                </h1>
 
-              {/* Subheading */}
-              <p className="text-gray-300 text-lg md:text-xl mb-12 max-w-3xl mx-auto leading-relaxed">
-                With our state of the art, cutting edge, we are so back kinda
-                hosting services,
-                <br /> you can deploy your website in seconds.
-              </p>
+                {/* Subheading */}
+                <p className="text-gray-300 text-lg md:text-xl mb-12 max-w-3xl mx-auto leading-relaxed">
+                  With our state of the art, cutting edge, we are so back kinda
+                  hosting services,
+                  <br /> you can deploy your website in seconds.
+                </p>
 
-              {/* CTA buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 items-center">
-                <Button
-                  className="bg-gray-800 hover:bg-gray-700 text-white px-8 py-3 rounded-full text-base transition-all duration-200 transform hover:scale-105 min-w-[140px]"
-                  size="lg"
-                >
-                  Start a project
-                </Button>
+                {/* CTA buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 items-center">
+                  <Button
+                    className="bg-gray-800 hover:bg-gray-700 text-white px-8 py-3 rounded-full text-base transition-all duration-200 transform hover:scale-105 min-w-[140px]"
+                    size="lg"
+                  >
+                    Start a project
+                  </Button>
 
-                <Button
-                  variant="secondary"
-                  className="bg-white hover:bg-gray-100 text-black px-8 py-3 rounded-full text-base transition-all duration-200 transform hover:scale-105 min-w-[140px]"
-                  size="lg"
-                >
-                  Book a call
-                </Button>
+                  <Button
+                    variant="secondary"
+                    className="bg-white hover:bg-gray-100 text-black px-8 py-3 rounded-full text-base transition-all duration-200 transform hover:scale-105 min-w-[140px]"
+                    size="lg"
+                  >
+                    Book a call
+                  </Button>
+                </div>
               </div>
             </div>
 
@@ -428,8 +390,8 @@ export default function HostingHeroSection() {
           </section>
         )
       ) : (
-        <div className="flex flex-col items-center justify-center h-[60vh] px-6 text-center">
-          <div className="w-full max-w-[79rem]  text-left overflow-x-auto">
+        <div className="flex flex-col items-center justify-center min-h-[60vh] w-full text-center">
+          <div className="w-full max-w-[79rem] px-6 text-left overflow-x-auto">
             <CodeView
               language="tsx"
               code={
